@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>NIS</title>
+
+        <!-- Google font -->
+        <link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
+
+        <!-- Bootstrap -->
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+
+        <!-- Font Awesome Icon -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+
+        <!-- Custom stlylesheet -->
+        <link type="text/css" rel="stylesheet" href="css/style.css"/>
+
+
+    </head>
+    <body>
+
+<!-- Header -->
+<header id="header" class="transparent-nav">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- Logo -->
+            <div class="navbar-brand">
+                <a class="logo" href="index.html">
+                    <img src="./img/logo-alt.png" alt="logo">
+                </a>
+            </div>
+            <!-- /Logo -->
+            <!-- Mobile toggle -->
+            <button class="navbar-toggle">
+            <span></span>
+            </button>
+            <!-- /Mobile toggle -->
+        </div>
+        <!-- Navigation -->
+        <nav id="nav">
+            <ul class="main-menu nav navbar-nav navbar-right">
+                <li style='margin-top: 0.5em;'><a href="index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li> <a href="/profile"><span class="fa fa-user"></span>  <%= user.username %> </a></li>
+             
+
+            </ul>
+        </nav>
+        <!-- /Navigation -->
+    </div>
+</header>
+<!-- /Header -->
+<!-- Home -->
+<div id="home" class="hero-area" style="height: 15em; ">
+    <!-- Backgound Image -->
+    <div class="bg-image bg-parallax overlay" style="background-image:url(./img/topbg.jpg);   background-position: center; "></div>
+    <!-- /Backgound Image -->
+    <div class="home-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1 class="white-text">Register to your courses</h1>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Home -->
+<!-- About -->
+<div id="about" class="section" style="    padding-top: 40px;">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        
+    </div>
+    <!-- /About -->
+
+    <!-- Courses -->
+    <div id="courses" class="section" style="    padding-top: 40px;">
+        <!-- container -->
+        <div class="container">
+            
+            <!-- row -->
+            <div class="row">
+                <div class="section-header text-center">
+                    <h2>Explore Courses</h2>
+                    <p class="lead">The courses that are might be in your list</p>
+                        <% if (messagedanger.length > 0) { %>
+                            <div class="alert alert-danger"><%= messagedanger %></div>
+                        <% } %>
+                        <% if (messagesuccess.length > 0) { %>
+                            <div class="alert alert-success"><%= messagesuccess %></div>
+                        <% } %>
+
+                </div>
+            </div>
+            <!-- /row -->
+            <!-- courses -->
+            <div id="courses-wrapper">
+                    <div class="row">
+                    <% courses.forEach(function(course) { %>
+                        
+                        <% if(course.course_id % 4 === 0 ){ %>
+                                
+                                                   
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="course">
+                            <a href="#" class="course-img" data-toggle="modal" data-target="#Modal<%= course.course_id %>">
+                                <img src="./img/course0<%= course.course_id %>.jpg" alt="">
+                                <i class="course-link-icon fa fa-link"></i>
+                            </a>
+                            <a class="course-title" href="#"><%= course.course_name %></a>
+                            <div class="course-details">
+                                <span class="course-category"><%= course.course_ex %></span>
+                                <span class="course-price   <% if(course.course_number >= course.course_full ){ %> course-premium <% } else{ %> course-free <% } %>"><%= course.course_number %>/<%= course.course_full %></span>
+                            </div>
+                            <div class="course-modal">
+                                <!-- Modal -->
+                                <div class="modal fade " id="Modal<%= course.course_id %>" role="dialog">
+                                    <div class="modal-dialog">
+                                        
+                                         Modal content
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title"><%= course.course_name %></h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p><%= course.course_description %></p>
+                                                <% if(course.course_number >= course.course_full )
+
+                                                { %> <button  class="btn btn-warning" disabled >No aviable places</button> <% } 
+                                                else{ %> <form method='POST' action='/load'>
+                                                        <input type="hidden" name="course_id" value='<%= course.course_id %>'>
+                                                        <input type="hidden" name="user_id" value='<%= user.id %>' >
+                                                        <input type="hidden" name="course_number" value='<%= course.course_number %>' >
+                                                        <button type="submit" class="btn btn-success" userid='<%= user.id %>' courseid='<%= course.course_id %>'>Subscribe to the course</button>
+                                                </form>
+                                                <% } %>
+                                                
+
+                                                
+                                            
+
+
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                               
+                        <% } else{ %>  
+                                                                               
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="course">
+                            <a href="#" class="course-img" data-toggle="modal" data-target="#Modal<%= course.course_id %>">
+                                <img src='./img/course0<%= course.course_id %>.jpg'>
+                                <i class="course-link-icon fa fa-link"></i>
+                            </a>
+                            <a class="course-title" href="#"><%= course.course_name %></a>
+                            <div class="course-details">
+                                <span class="course-category"><%= course.course_ex %></span>
+                                <span class="course-price    <% if(course.course_number >= course.course_full ){ %> course-premium <% } else{ %> course-free <% } %>"><%= course.course_number %>/<%= course.course_full %></span>
+                            </div>
+                            <div class="course-modal">
+                                <!-- Modal -->
+                                <div class="modal fade " id="Modal<%= course.course_id %>" role="dialog">
+                                    <div class="modal-dialog">
+                                        
+                                         Modal content
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button  class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title"><%= course.course_name %></h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p><%= course.course_description %></p>
+                                                <% if(course.course_number >= course.course_full )
+
+                                                { %> <button type="submit" class="btn btn-warning" disabled>No aviable places</button> <% } 
+                                                else{ %> <form method='POST' action='/load'>
+                                                        <input type="hidden" name="course_id" value='<%= course.course_id %>'>
+                                                        <input type="hidden" name="user_id" value='<%= user.id %>' >
+                                                        <input type="hidden" name="course_number" value='<%= course.course_number %>' >
+                                                        <button type="submit" class="btn btn-success" userid='<%= user.id %>' courseid='<%= course.course_id %>'>Subscribe to the course</button>
+                                                </form>
+                                                <% } %>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                        <% } %>
+
+
+
+
+         <% }); %>
+          </div>
+ </div>
+</div>
+        <!-- container -->
+
+    <!-- /Courses -->
+    <!-- Call To Action -->
+    <div id="cta" class="section">
+        <!-- Backgound Image -->
+        <div class="bg-image bg-parallax overlay" style="background-image:url(./img/topbg.jpg)"></div>
+        <!-- /Backgound Image -->
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="white-text">Ceteros fuisset mei no, soleat epicurei adipiscing ne vis.</h2>
+                    <p class="lead white-text">Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
+                    <a class="main-button icon-button" href="#">Login</a>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /Call To Action -->
+
+    <!-- Why us -->
+    <div id="why-us" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="section-header text-center">
+                    <h2>Why Edusite</h2>
+                    <p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+                </div>
+                <!-- feature -->
+                <div class="col-md-4">
+                    <div class="feature">
+                        <i class="feature-icon fa fa-flask"></i>
+                        <div class="feature-content">
+                            <h4>Additional lessons</h4>
+                            <p>Courses covers different subjects and preparation</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /feature -->
+                <!-- feature -->
+                <div class="col-md-4">
+                    <div class="feature">
+                        <i class="feature-icon fa fa-users"></i>
+                        <div class="feature-content">
+                            <h4>Expert Teachers</h4>
+                            <p>Teachers can help you with your interest</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /feature -->
+                <!-- feature -->
+                <div class="col-md-4">
+                    <div class="feature">
+                        <i class="feature-icon fa fa-comments"></i>
+                        <div class="feature-content">
+                            <h4>Community</h4>
+                            <p>You can find new friends</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /feature -->
+            </div>
+            <!-- /row -->
+
+            
+        <!-- Footer -->
+        <footer id="footer" class="section">
+
+            <!-- container -->
+            <div class="container">
+
+                <!-- row -->
+                <div class="row">
+
+                    <!-- footer logo -->
+                    <div class="col-md-6">
+                        <div class="footer-logo">
+                            <a class="logo" href="index.html">
+                                <img src="./img/logo.png" alt="logo">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- footer logo -->
+
+                    <!-- footer nav -->
+                    <div class="col-md-6">
+                        <ul class="footer-nav">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Courses</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <!-- /footer nav -->
+
+                </div>
+                <!-- /row -->
+
+
+            </div>
+            <!-- /container -->
+
+        </footer>
+        <!-- /Footer -->
+
+        <!-- preloader -->
+        <div id='preloader'><div class='preloader'></div></div>
+        <!-- /preloader -->
+
+
+        <!-- jQuery Plugins -->
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+
+    </body>
+</html>
+
+

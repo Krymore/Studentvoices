@@ -1,0 +1,76 @@
+<!-- views/signup.ejs -->
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Sign UP</title>
+
+        <!-- Google font -->
+        <link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
+
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+        <!-- Bootstrap -->
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+
+        <!-- Font Awesome Icon -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+
+        <!-- Custom stlylesheet -->
+        <link type="text/css" rel="stylesheet" href="css/style.css"/>
+
+
+    </head>
+<body>
+<div class="container">
+
+<div class="col-sm-6 col-sm-offset-3">
+
+	<h1><span class="fa fa-sign-in"></span> Signup</h1>
+
+	<!-- show any messages that come back with authentication -->
+	<% if (message.length > 0) { %>
+		<div class="alert alert-danger"><%= message %></div>
+	<% } %>
+
+									<div class="container" id='form-wrapper'>
+										<form action='/signup' class='form' method="POST" id="form">
+											<p class='field required '>
+												
+												<input class='text-input' id='login' placeholder='Username' name='username' required type='text'>
+											</p>
+											<p class='field required  '>
+												
+												<input class='text-input' id='password' placeholder='Password' name='password' required type='password'>
+											</p>
+									     <p class='field required  '>
+												
+												<input class='text-input' id='grade' placeholder='Grade' name='grade' required type='text'>
+											</p>											
+												<input class='main-button icon-button' form="form" type='submit' value='Signup'>
+										</form>
+
+									
+									</div>
+
+
+	<hr>
+
+	<p>Already have an account? <a href="/login">Login</a></p>
+	<p>Or go <a href="/">home</a>.</p>
+
+</div>
+
+</div>
+
+                <script type="text/javascript" src='js/jquery.min.js'></script>
+        <script type="text/javascript" src='js/main.js'></script>
+
+</body>
+
+</html>
+
+

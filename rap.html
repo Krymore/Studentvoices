@@ -1,0 +1,83 @@
+// <!DOCTYPE html>
+// <html lang="en">
+	//     <head>
+		//         <link href="public/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		//         <script src="public/js/bootstrap.min.js"></script>
+		//         <script src="public/js/jquery.min.js"></script>
+		//         <link href="public/css/font-awesome.min.css" rel="stylesheet">
+		//         <meta charset="UTF-8">
+		//         <title>Document</title>
+	//     </head>
+	//     <body>
+		//         <style>
+		//         @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+		//         .profile
+		//         {
+		//         font-family: 'Lato', 'sans-serif';
+		//         }
+		//         .profile
+		//         {
+		//         margin-top: 2px;
+		//         padding:1px;
+		//         display: inline-block;
+		//         }
+		//         .divider
+		//         {
+		//         border-top:1px solid rgba(0,0,0,0.1);
+		//         }
+		//         .emphasis
+		//         {
+		//         border-top: 1px solid transparent;
+		//         }
+		//         .emphasis h2
+		//         {
+		//         margin-bottom:0;
+		//         }
+		//         span.tags
+		//         {
+		//         background: #1abc9c;
+		//         border-radius: 2px;
+		//         color: #f5f5f5;
+		//         font-weight: bold;
+		//         padding: 2px 4px;
+		//         }
+		//         .profile strong,span,div{
+		//         text-transform: initial;
+		//         }
+		
+		//         </style>
+		//         <div class="container">
+			//             <div class="row">
+				//                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					//                     <div class="row">
+						//                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="border-radius: 16px;">
+							//                         <div class="well profile col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								//                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+									//                                 <figure style="margin-top: 10px;">
+										//                                     <img src="https://www.qualiscare.com/wp-content/uploads/2017/08/default-user.png" alt="user" class="img-circle" style="width:75px;" id="user-img">
+									//                                 </figure>
+									//                                 <h5 style="text-align:center;"><strong id="user-name"><%= user.id %></strong></h5>
+									//                                 <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+									//                                 <p style="text-align:center;font-size: smaller;" id="user-frid"><%= user.username %> </p>
+									//                                 <p style="text-align:center;font-size: smaller;overflow-wrap: break-word;" id="username"><%= user.id %></p>
+									//                                 <p style="text-align:center;font-size: smaller;"><strong>Subscribe status: </strong><span class="tags" id="user-status"><%= user.courses %>/4</span></p>
+									//                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 divider text-center"></div>
+									//                                 <p style="text-align:center;font-size: smaller;"><strong>Courses</strong></p>
+									//                                 <% if(courses.length > 0){ %>
+									//                                     <% courses.forEach(function(course) { %>
+									//                                         <p style="text-align:center;font-size: smaller;" ><%=course.course_name%></p>
+									//                                     <% }); %>
+									//                                 <% } else{ %>
+									//                                     <p style="text-align:center;font-size: smaller;" >You have not subscribed to the courses courses</p>
+									//                                 <% } %>
+									//                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 divider text-center"></div>
+								//                             </div>
+							//                         </div>
+						//                     </div>
+					//                 </div>
+				//             </div>
+			//         </div>
+		//     </div>
+	// </div>
+// </body>
+// </html>

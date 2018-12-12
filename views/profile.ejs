@@ -1,0 +1,33 @@
+<% include ./partials/head %>
+<div class="container">
+	<div class="page-header text-center">
+		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
+		
+	</div>
+	<div class="row">
+		<!-- LOCAL INFORMATION -->
+		<div class="col-sm-6">
+			<div class="well">
+				<h3><span class="fa fa-user"></span> Local</h3>
+				<p>
+					<strong>id</strong>: <%= user.id %><br>
+					<strong>username</strong>: <%= user.username %><br>
+					<strong>password</strong>: <%= user.password %>
+					<strong>grade</strong>: <%= user.grade %><br>
+					<% courses.forEach(function(course) { %>
+					<strong>course</strong>: <%= course.course_name %><br>
+					<strong>course</strong>: <%= course.teacher_name %><br>
+					<strong>course</strong>: <%= course. %><br>
+					<% }); %>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+// <% courses.forEach(function(course) { %>
+//                 <% if(course.course_id % 4 === 0 ){ %>
+//                 <% } else{ %>
+//                 <% } %>
+//  <% }); %>

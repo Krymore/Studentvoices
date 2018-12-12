@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Mathedemo</title>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],processRefs: true}});
+</script>
+</head>
+<body>
+
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<!-- 	<script src="main.js"></script> -->
+<div id="target" style='display: none'  ></div>
+<div id="problem1"><p><%= latex %></p></div>
+<div id="problem2"></div>
+<div id="problem3"></div>
+<div id="problem4"></div>
+<div id="problem5"></div>
+<div id="problem6">dfdf</div>
+
+<!-- <script>            
+    $.ajaxSetup({
+    scriptCharset: "utf-8", //maybe "ISO-8859-1"
+    contentType: "application/json; charset=utf-8"});
+    $.getJSON('http://whateverorigin.org/get?url=' + 
+    encodeURIComponent('http://matol.kz/olympiads/466') + '&callback=?',
+    function(data) {
+       var thecontents = data.contents;
+       $('#target').html( thecontents);
+       var list = document.getElementsByTagName("main")[0];
+		$('#target').html(list);
+	   // var problems = ['q', "q", "q",'q','q','q'];
+	   const divs = document.getElementsByTagName("div");
+	   console.log(divs);
+	   $( "#problem1" ).html(divs[3] );
+	   $( "#problem2" ).html(divs[3] );
+	   $( "#problem3" ).html(divs[3] );
+	   $( "#problem4" ).html(divs[3] );
+	   $( "#problem5" ).html(divs[3] );
+	   console.log('rap');
+	    $( "#problem6" ).html(divs[3] );
+	   console.log('rap');
+
+    });
+
+function lol(){
+console.log('LOL');
+}
+
+</script> -->
+</body>
+</html>

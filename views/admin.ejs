@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Table V02</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--===============================================================================================-->
+		<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+		<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="css/util.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<!--===============================================================================================-->
+	</head>
+	<body>
+		
+		<div class="limiter">
+			<div class="container-table100">
+				<div class="wrap-table100">
+					<div class="table">
+						<div class="row header">
+							<div class="cell">
+								Course name
+							</div>
+							<div class="cell">
+								Grade
+							</div>
+							<div class="cell">
+								Username
+							</div>
+						</div>
+						<% courses.forEach(function(course,index) { %>
+						
+						<%if (index > 0) { %>
+						
+						
+						
+						<%if (courses[index - 1].course_name != course.course_name ) { %>
+						<script type="text/javascript">console.log('dfdf');</script>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 divider2 text-center"></div>
+						<% } %>
+						<% } %>
+						
+						<div class="row">
+							<div class="cell" data-title="Course name">
+								<%= course.course_name %>
+							</div>
+							<div class="cell" data-title="Grade">
+								<%= course.grade %>
+							</div>
+							<div class="cell" data-title="Username">
+								<%= course.username %>
+							</div>
+						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 divider text-center"></div>
+						<% }); %>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--===============================================================================================-->
+		<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+		<!--===============================================================================================-->
+		<script src="vendor/bootstrap/js/popper.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+		<!--===============================================================================================-->
+		<script src="vendor/select2/select2.min.js"></script>
+		<!--===============================================================================================-->
+		<script src="js/main.js"></script>
+	</body>
+</html>
+<!--
+courses.forEach(function(item, index) {
+console.log("Current: " + item.name);
+if (index > 0) {
+console.log("Previous: " + fruits[index - 1].name);
+}
+if (index < fruits.length - 1) {
+console.log("Next: " + fruits[index + 1].name);
+}
+}); -->
