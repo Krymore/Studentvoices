@@ -3,6 +3,7 @@
 	const flash    = require('connect-flash');
 	const dbconfig = require('../config/database');
 	const request = require('request');
+	const langs = require('../config/langs');
 
 
 	var connection = mysql.createConnection(dbconfig.connection);
@@ -22,7 +23,22 @@
 
 	});
 	app.get('/',function(req, res) {
-			res.render('index.ejs', { title: 'courses' });
+			// Configing the get query for the language detection
+			var ln = req.query.ln;
+			console.log(ln);
+			if(ln === 'ru'){
+				setuplanguage = langs.ru;
+			}else{
+				if(ln === 'en'){ 
+					setuplanguage = langs.en;
+				}else{
+					setuplanguage = langs.kz;
+				}
+
+			};
+			
+
+			res.render('index.ejs', { title: 'courses', lang : setuplanguage  });
     });
     	app.get('/t',function(req, res) {
 			res.render('t.ejs', { title: 'courses', latex:'Докажите, что для любых натуральных чисел $n$ и $k$ произведение $\left( {k + 1} \right)! \cdot \left( {{1^k} + {2^k} +  \ldots +{n^k}} \right)$ делится на $n{(n + 1)}$.'});

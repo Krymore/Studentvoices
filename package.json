@@ -15,7 +15,9 @@
     "moment": "^2.22.2",
     "morgan": "^1.6.0",
     "mysql": "^2.7.0",
+    "nodemon": "^1.18.9",
     "passport": "^0.2.2",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "request": "^2.88.0"
   }
 }

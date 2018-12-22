@@ -5,6 +5,6 @@ module.exports = {
         'user': 'root',
         'password': ''
     },
-	'database': 'studentvoice',
+	'database': 'studentvoices',
     'users_table': 'users'
 };
